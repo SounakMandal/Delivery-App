@@ -521,7 +521,7 @@ void main()
    Outlet(c);
    Menu(c);
    Calculate(c);
+   Terms();
    Bill(c);
-   //Terms();
    getch();
 }
