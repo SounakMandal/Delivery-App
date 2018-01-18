@@ -489,7 +489,7 @@ void Bill(Customer &ob)
 }
 
 void Terms()
-{
+{cout<<"\n";
    cout<<"Info About Service"<<endl;
    cout<<"\nA. Delivery Charges"<<endl;
    cout<<"1. Orders above Rs 2000 are free of delivery charge upto 20 KM"<<endl;
@@ -514,19 +514,20 @@ void Terms()
 }
 
 void Feedback()
-{int a,b,c
+{int a,b,c;
+ clrscr();
 cout<<"\nYour feeback is valuable to us\n";
- cout<<"\nRate the food(0-10)";
+ cout<<"\nRate the food(0-10)"<<endl;
  cin>>a;
- cout<<"\nRate our delivery(0-10)";
+ cout<<"\nRate our delivery(0-10)"<<endl;
  cin>>b;
- cout<<"\nRate our app interface";
+ cout<<"\nRate our app interface"<<endl;
  cin>>c;
  if(a<7||b<7||c<7)
- {cout<<"Sorry for the inconvinience\n";
+ {cout<<"\nSorry for the inconvinience\n";
   cout<<"We would try to improve are service";}
  else
-	 cout<<"Thank You";
+	 cout<<"\nThank You";
 
 }
 
