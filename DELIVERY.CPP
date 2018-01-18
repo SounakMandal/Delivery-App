@@ -20,7 +20,7 @@ struct Customer
    double gross;
    double CGST;
    double SGST;
-   double SC;
+   double cess;
    double discount;
    double delivery_charge;
    double net;
