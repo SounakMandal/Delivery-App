@@ -548,7 +548,7 @@ void main()
     if(p=='T' || p=='t')
     {Terms();}
     else if(p=='f' || p=='F')
-    {Feedback();}}while(p!='B' &&p!='b');
+    {clrscr();Feedback();}}while(p!='B' &&p!='b');
     clrscr();
    Bill(c);
    getch();
