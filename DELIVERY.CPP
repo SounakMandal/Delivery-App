@@ -514,14 +514,22 @@ void Feedback()
 }
 
 void main()
-{
+{  char p;
    clrscr();
    Customer c;
    Customer_Details(c);
    Outlet(c);
    Menu(c);
+   clrscr();
    Calculate(c);
-   Terms();
+   do
+   {cout<<"\n Enter T to view Terms and Conditions";
+    cout<<"\n Enter B to proceed to bill";
+    cin>>p;
+    if(p=='T' || p=='t')
+    {Terms();
+    }}while(p!='P' &&p!='p');
+    clrscr();
    Bill(c);
    getch();
 }
