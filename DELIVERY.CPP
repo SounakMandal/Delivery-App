@@ -29,13 +29,13 @@ struct Customer
 void Customer_Details(Customer &ob)
 {
    cout<<"Please enter your credentials correctly"<<endl;
-   cout<<"\nEnter your name"<<endl;
+   cout<<"\nEnter your name:"<<endl;
    gets(ob.name);
-   cout<<"\nEnter your address"<<endl;
+   cout<<"\nEnter your address:"<<endl;
    gets(ob.address);
-   cout<<"\nEnter your mobile number"<<endl;
+   cout<<"\nEnter your mobile number:"<<endl;
    gets(ob.mobile);
-   cout<<"\nEnter the distance of your place"<<endl;
+   cout<<"\nEnter the distance of your place:"<<endl;
    cin>>ob.distance;
    clrscr();
 }
@@ -530,17 +530,17 @@ void Feedback()
 {int a,b,c;
  clrscr();
 cout<<"\nYour feeback is valuable to us\n";
- cout<<"\nRate the food(0-10)"<<endl;
+ cout<<"\nRate the food(0-10):"<<endl;
  cin>>a;
- cout<<"\nRate our delivery(0-10)"<<endl;
+ cout<<"\nRate our delivery(0-10):"<<endl;
  cin>>b;
- cout<<"\nRate our app interface"<<endl;
+ cout<<"\nRate our app interface(0-10):"<<endl;
  cin>>c;
  if(a<7||b<7||c<7)
  {cout<<"\nSorry for the inconvinience\n";
   cout<<"We would try to improve are service";}
  else
-	 cout<<"\nThank You";
+	 cout<<"\nThank You!!";
 
 }
 
