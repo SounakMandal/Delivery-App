@@ -426,45 +426,33 @@ void Menu(Customer &ob)
    }
    while(condition == 'y' || condition == 'Y');
 }
-void Delivery_Charge(double gc)
-{
-   if(gc >= 2000)
-     {
-        if(ob.distance <= 20)
-	   ob.delivery_charge = 0;
-        else
-           ob.delivery_charge = (ob.distance - 20) * 1;
-     }
-     else if(gc >= 400 && gc < 2000)
-     {
-        if(ob.distance <= 5)
-           ob.delivery_charge = 0;
-        else
-	   ob.delivery_charge = (ob.distance - 5) * 2;
-     }
-     else
-           ob.delivery_charge = 3 * ob.distance;
-}	
-void Discount(double gd)
-{
-   if(gd<=500)
-	ob.discount=0.05*gd;
-   else
-   if(gd<=1500)
-	ob.discount=0.1*gd;
-   else
-	ob.discount=0.15*gd;
-}
-		
+
 void Calculate(Customer &ob)
 {
    for(int i = 0; i < ob.number; i++)
       ob.gross += ob.price[i] * ob.quantity[i];
-   Delivery_Charge(ob.gross);	
+
+   if(ob.gross >= 2000)
+   {
+      if(ob.distance <= 20)
+	 ob.delivery_charge = 0;
+      else
+	 ob.delivery_charge = (ob.distance - 20) * 1;
+   }
+   else if(ob.gross >= 400 && ob.gross < 2000)
+   {
+      if(ob.distance <= 5)
+	 ob.delivery_charge = 0;
+      else
+	 ob.delivery_charge = (ob.distance - 5) * 2;
+   }
+   else
+      ob.delivery_charge = 3 * ob.distance;
+
    ob.SGST = 0.06 * ob.gross;
    ob.CGST = 0.06 * ob.gross;
    ob.SC = 0.1 * ob.gross;
-   Discount(ob.gross);	
+   ob.discount = 100;
    ob.net = ob.gross + ob.SGST + ob.CGST + ob.SC - ob.discount;
    ob.net = ob.net + ob.delivery_charge;
 }
@@ -490,7 +478,7 @@ void Bill(Customer &ob)
    cout<<"Gross Amount : "<<ob.gross<<endl;
    cout<<"CGST : "<<ob.CGST<<endl;
    cout<<"SGST : "<<ob.SGST<<endl;
-   cout<<"SC   : "<<ob.SC<<endl;
+   cout<<"Cess : "<<ob.cess<<endl;
    cout<<"Discount : "<<ob.discount<<endl;
    cout<<"Delivery Charge : "<<ob.delivery_charge<<endl;
    cout<<"Net Amount : "<<ob.net<<endl;
