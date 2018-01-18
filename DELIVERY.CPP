@@ -426,32 +426,41 @@ void Menu(Customer &ob)
    }
    while(condition == 'y' || condition == 'Y');
 }
-
+void Delivery_Charge(double gc)
+{
+   if(gc >= 2000)
+     {
+        if(ob.distance <= 20)
+	   ob.delivery_charge = 0;
+        else
+           ob.delivery_charge = (ob.distance - 20) * 1;
+     }
+     else if(gc >= 400 && gc < 2000)
+     {
+        if(ob.distance <= 5)
+           ob.delivery_charge = 0;
+        else
+	   ob.delivery_charge = (ob.distance - 5) * 2;
+     }
+     else
+           ob.delivery_charge = 3 * ob.distance;
+}	
 void Discount(double gd)
 {
-   if(
+   if(gd<=500)
+	ob.discount=0.05*gd;
+   else
+   if(gd<=1500)
+	ob.discount=0.1*gd;
+   else
+	ob.discount=0.15*gd;
+}
+		
 void Calculate(Customer &ob)
 {
    for(int i = 0; i < ob.number; i++)
       ob.gross += ob.price[i] * ob.quantity[i];
-
-   if(ob.gross >= 2000)
-   {
-      if(ob.distance <= 20)
-	 ob.delivery_charge = 0;
-      else
-	 ob.delivery_charge = (ob.distance - 20) * 1;
-   }
-   else if(ob.gross >= 400 && ob.gross < 2000)
-   {
-      if(ob.distance <= 5)
-	 ob.delivery_charge = 0;
-      else
-	 ob.delivery_charge = (ob.distance - 5) * 2;
-   }
-   else
-      ob.delivery_charge = 3 * ob.distance;
-
+   Delivery_Charge(ob.gross);	
    ob.SGST = 0.06 * ob.gross;
    ob.CGST = 0.06 * ob.gross;
    ob.SC = 0.1 * ob.gross;
