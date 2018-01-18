@@ -20,7 +20,7 @@ struct Customer
    double gross;
    double CGST;
    double SGST;
-   double cess;
+   double SC;
    double discount;
    double delivery_charge;
    double net;
@@ -507,10 +507,10 @@ void Terms()
    cout<<"4. Swacch Bharat Cess at 0.5% of bill amount"<<endl;
 
    cout<<"\nC. Terms And Conditions"<<endl;
-   cout<<"1. We don't deliver food from other company"<<endl;
-   cout<<"2. The company doesn't take responsibility for delivery within fixed time"<<endl;
+   cout<<"1. We are not respnsible for the food made by the restaurants"<<endl;
+   cout<<"2. The company doesn't commit to a delivery within fixed time"<<endl;
    cout<<"3. There will be no return of order unless there is mixup of order"<<endl;
-   cout<<"For any queries contact 9074325784"<<endl;
+   cout<<"For any queries contact: 9074325784"<<endl;
 }
 
 void Feedback()
