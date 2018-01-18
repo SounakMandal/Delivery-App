@@ -528,7 +528,7 @@ void main()
     cin>>p;
     if(p=='T' || p=='t')
     {Terms();
-    }}while(p!='P' &&p!='p');
+    }}while(p!='B' &&p!='b');
     clrscr();
    Bill(c);
    getch();
