@@ -20,7 +20,7 @@ struct Customer
    double gross;
    double CGST;
    double SGST;
-   double cess;
+   double SC;
    double discount;
    double delivery_charge;
    double net;
@@ -449,11 +449,11 @@ void Calculate(Customer &ob)
    else
       ob.delivery_charge = 3 * ob.distance;
 
-   ob.SGST = 0.1 * ob.gross;
-   ob.CGST = 0.1 * ob.gross;
-   ob.cess = 0.02 * ob.gross;
+   ob.SGST = 0.06 * ob.gross;
+   ob.CGST = 0.06 * ob.gross;
+   ob.SC = 0.1 * ob.gross;
    ob.discount = 100;
-   ob.net = ob.gross + ob.SGST + ob.CGST + ob.cess - ob.discount;
+   ob.net = ob.gross + ob.SGST + ob.CGST + ob.SC - ob.discount;
    ob.net = ob.net + ob.delivery_charge;
 }
 
@@ -498,15 +498,15 @@ void Terms()
    cout<<"\nB. Tax Rates"<<endl;
    cout<<"The tax rates are as per the directives of gov of India"<<endl;
    cout<<"1. Tax rates are calculated on gross amount"<<endl;
-   cout<<"2. SGST applicable at 10% of bill amount"<<endl;
-   cout<<"3. CGST applicable at 10% of bill amount"<<endl;
-   cout<<"4. Swacch Bharat Cess at 2% of bill amount"<<endl;
+   cout<<"2. SGST applicable at 6% of bill amount"<<endl;
+   cout<<"3. CGST applicable at 6% of bill amount"<<endl;
+   cout<<"4. Service charge is calculated as per order at the rate of 10%"<<endl;
 
    cout<<"\nC. Terms And Conditions"<<endl;
-   cout<<"1. We don't deliver food from other company"<<endl;
-   cout<<"2. The company doesn't take responsibility for delivery within fixed time"<<endl;
+   cout<<"1. We are not respnsible for the food made by the restaurants"<<endl;
+   cout<<"2. The company doesn't commit to a delivery within fixed time"<<endl;
    cout<<"3. There will be no return of order unless there is mixup of order"<<endl;
-   cout<<"For any queries contact 9074325784"<<endl;
+   cout<<"For any queries contact: 9074325784"<<endl;
 }
 
 void Feedback()
