@@ -427,6 +427,9 @@ void Menu(Customer &ob)
    while(condition == 'y' || condition == 'Y');
 }
 
+void Discount(double gd)
+{
+   if(
 void Calculate(Customer &ob)
 {
    for(int i = 0; i < ob.number; i++)
@@ -452,7 +455,7 @@ void Calculate(Customer &ob)
    ob.SGST = 0.06 * ob.gross;
    ob.CGST = 0.06 * ob.gross;
    ob.SC = 0.1 * ob.gross;
-   ob.discount = 100;
+   Discount(ob.gross);	
    ob.net = ob.gross + ob.SGST + ob.CGST + ob.SC - ob.discount;
    ob.net = ob.net + ob.delivery_charge;
 }
@@ -478,7 +481,7 @@ void Bill(Customer &ob)
    cout<<"Gross Amount : "<<ob.gross<<endl;
    cout<<"CGST : "<<ob.CGST<<endl;
    cout<<"SGST : "<<ob.SGST<<endl;
-   cout<<"Cess : "<<ob.cess<<endl;
+   cout<<"SC   : "<<ob.SC<<endl;
    cout<<"Discount : "<<ob.discount<<endl;
    cout<<"Delivery Charge : "<<ob.delivery_charge<<endl;
    cout<<"Net Amount : "<<ob.net<<endl;
