@@ -127,8 +127,8 @@ void Menu(Customer &ob)
 
 	    case 6:
 	    strcpy(ob.sub_category[i],"Mexican Special");
-	    ob.price[i] = 180;
-	    break;
+			 ob.price[i]=180;
+	                 break;
 	 }
 	 strcpy(ob.category[i], "Chicken");
 	 cout<<"Enter the quantity ";
@@ -449,11 +449,15 @@ void Calculate(Customer &ob)
    else
       ob.delivery_charge = 3 * ob.distance;
 
-   ob.SGST = 0.06 * ob.gross;
-   ob.CGST = 0.06 * ob.gross;
-   ob.SC = 0.1 * ob.gross;
-   ob.discount = 100;
-   ob.net = ob.gross + ob.SGST + ob.CGST + ob.SC - ob.discount;
+   ob.SGST = 0.025 * ob.gross;
+   ob.CGST = 0.025 * ob.gross;
+   ob.cess = 0.005 * ob.gross;
+	if(ob.gross>1000)
+	{ob.discount = 100;
+	}
+	else
+		ob.discount=0;
+   ob.net = ob.gross + ob.SGST + ob.CGST + ob.cess - ob.discount;
    ob.net = ob.net + ob.delivery_charge;
 }
 
@@ -485,7 +489,7 @@ void Bill(Customer &ob)
 }
 
 void Terms()
-{
+{cout<<"\n";
    cout<<"Info About Service"<<endl;
    cout<<"\nA. Delivery Charges"<<endl;
    cout<<"1. Orders above Rs 2000 are free of delivery charge upto 20 KM"<<endl;
@@ -498,9 +502,9 @@ void Terms()
    cout<<"\nB. Tax Rates"<<endl;
    cout<<"The tax rates are as per the directives of gov of India"<<endl;
    cout<<"1. Tax rates are calculated on gross amount"<<endl;
-   cout<<"2. SGST applicable at 6% of bill amount"<<endl;
-   cout<<"3. CGST applicable at 6% of bill amount"<<endl;
-   cout<<"4. Service charge is calculated as per order at the rate of 10%"<<endl;
+   cout<<"2. SGST applicable at 2.5% of bill amount"<<endl;
+   cout<<"3. CGST applicable at 2.5% of bill amount"<<endl;
+   cout<<"4. Swacch Bharat Cess at 0.5% of bill amount"<<endl;
 
    cout<<"\nC. Terms And Conditions"<<endl;
    cout<<"1. We are not respnsible for the food made by the restaurants"<<endl;
@@ -510,18 +514,43 @@ void Terms()
 }
 
 void Feedback()
-{
+{int a,b,c;
+ clrscr();
+cout<<"\nYour feeback is valuable to us\n";
+ cout<<"\nRate the food(0-10)"<<endl;
+ cin>>a;
+ cout<<"\nRate our delivery(0-10)"<<endl;
+ cin>>b;
+ cout<<"\nRate our app interface"<<endl;
+ cin>>c;
+ if(a<7||b<7||c<7)
+ {cout<<"\nSorry for the inconvinience\n";
+  cout<<"We would try to improve are service";}
+ else
+	 cout<<"\nThank You";
+
 }
 
 void main()
-{
+{  char p;
    clrscr();
    Customer c;
    Customer_Details(c);
    Outlet(c);
    Menu(c);
+   clrscr();
    Calculate(c);
-   Terms();
+   do
+   {cout<<"\n Enter T to view Terms and Conditions";
+    cout<<"\n Enter F to give Feedback";
+    cout<<"\n Enter B to proceed to bill";
+    cin>>p;
+    if(p=='T' || p=='t')
+    {Terms();}
+    else if(p=='f' || p=='F')
+    {clrscr();Feedback();}}while(p!='B' &&p!='b');
+    clrscr();
    Bill(c);
    getch();
-}
+}  
+	
